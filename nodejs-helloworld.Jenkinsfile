@@ -12,10 +12,10 @@ pipeline {
 
         stage('Cloning Repositories') {
             steps {
-                script {
+                sh """
                     ls
                     pwd
-                }
+                """
             }
         }
 
