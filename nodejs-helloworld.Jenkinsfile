@@ -12,6 +12,7 @@ pipeline {
 
         stage('Cloning Repositories') {
             steps {
+                echo "denemeee"
                 sayHello "test"
             }
         }
