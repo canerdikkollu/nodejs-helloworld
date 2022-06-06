@@ -2,13 +2,12 @@
 
 pipeline {
     agent any
-
+    options {
+        skipDefaultCheckout true
+    }
     stages {
-        stage('Clean-up') {
-            steps {
-                cleanWs()
-            }
-        }
+        
+        
 
         stage('Cloning Repositories') {
             steps {
