@@ -12,12 +12,7 @@ pipeline {
         stage('Cloning Repositories') {
             steps {
                 // sayHello "test"
-                sh '''
-                    echo "denemeee"
-                    
-                    git clone https://github.com/canerdikkollu/nodejs-helloworld.git
-                
-                '''
+                echo "test"
             }
         }
 
