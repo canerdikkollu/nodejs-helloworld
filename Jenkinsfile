@@ -3,6 +3,15 @@
 pipeline {
     agent any
     stages {
+        
+        stage('Set Environment') {
+            steps {
+                script {
+                    APP_IMAGE_REGISTRY = "canerdikkollu"
+                    APP_IMAGE_REPOSITORY = "nodejs-helloworld"
+                }
+            }
+        }
 
         stage('Build') {
             steps {
@@ -11,6 +20,8 @@ pipeline {
                 sh "pwd"
 
                 sayHello "caner"
+
+                dockerBuild "${APP_IMAGE_REGISTRY}", "${APP_IMAGE_REPOSITORY}"
             }
         }
 
