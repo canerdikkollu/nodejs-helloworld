@@ -1,18 +1,16 @@
 // @Library('my-shared-library') _
 
-pipeline {
-    agent none
-   
+agent any
     stages {
-        
-        
-
-        stage('Cloning Repositories') {
+        stage('Build') {
             steps {
-                // sayHello "test"
-                echo "test"
+                
+                // Get some code from a GitHub repository
+                git url: 'https://github.com/canerdikkollu/nodejs-helloworld.git', branch: 'main'
+                
+
+                sh "ls"
+                
             }
         }
-
-    } 
-}
+    }
