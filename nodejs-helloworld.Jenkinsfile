@@ -1,10 +1,8 @@
 // @Library('my-shared-library') _
 
 pipeline {
-    agent any
-    options {
-        skipDefaultCheckout true
-    }
+    agent none
+   
     stages {
         
         
