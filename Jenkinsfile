@@ -3,6 +3,10 @@
 pipeline {
     agent any
     stages {
+        
+        environment {
+            DOCKERHUB_CRED=credentials('docker-hub-credential')
+        }
 
         stage('Set Environment') {
             steps {
@@ -13,15 +17,21 @@ pipeline {
             }
         }
 
+        stage('Hello') {
+            steps {
+                sayHello "caner"
+            }
+        }
+
         stage('Build') {
             steps {
-                sh "ls"
-
-                sh "pwd"
-
-                sayHello "caner"
-
                 dockerBuild "${APP_IMAGE_REGISTRY}", "${APP_IMAGE_REPOSITORY}"
+            }
+        }
+
+        stage('Push') {
+            steps {
+                dockerPush "${APP_IMAGE_REGISTRY}", "${APP_IMAGE_REPOSITORY}"
             }
         }
 
