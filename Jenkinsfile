@@ -2,12 +2,12 @@
 
 pipeline {
     agent any
-    stages {
         
-        environment {
-            DOCKERHUB_CRED=credentials('docker-hub-credential')
-        }
+    environment {
+        DOCKERHUB_CRED=credentials('docker-hub-credential')
+    }
 
+    stages {
         stage('Set Environment') {
             steps {
                 script {
